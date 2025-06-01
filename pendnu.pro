@@ -16,6 +16,7 @@ HEADERS += \
     mainwindow.h
 
 FORMS += \
+    homepage.ui \
     mainwindow.ui
 
 # Default rules for deployment.

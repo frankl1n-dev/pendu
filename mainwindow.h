@@ -2,10 +2,9 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <QStringList>
-#include <QSet>
-#include <QPixmap>
-#include <QMessageBox>
+#include <QPushButton>
+#include <QVBoxLayout>
+#include <QLabel>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -13,37 +12,43 @@ class MainWindow;
 }
 QT_END_NAMESPACE
 
+class GameBoard;
+class ScoreBoard;
+class RulesPage;
+class AboutPage;
+
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
     MainWindow(QWidget *parent = nullptr);
-    ~MainWindow();
-    void on_guessButton_clicked();
+    ~MainWindow(); 
+
+private slots:
+    void newGame();
+    void showScores();
+    void showRules();
+    void showAbout();
+
 
 private:
-    Ui::MainWindow *ui;
+    // Ui::MainWindow *ui;
+    QWidget *centralWidget;
+    QBoxLayout *mainLayout;
+    QPushButton *newGameButton;
+    QPushButton *scoreBoardButton;
+    QPushButton *rulesButton;
+    QPushButton *aboutButton;
 
-    // Declaration des variables
-    QString m_secretWord;
-    QString m_displayWord;
+    
+    GameBoard *gameBoard;
+    ScoreBoard *scoreBoard;
+    RulesPage *rulesPage;
+    AboutPage *aboutPage;
 
-    int m_incorrectGuesses;
-
-    QSet<QChar> m_guessedLetters;
-
-    QStringList m_wordList;
-
-    QVector<QPixmap> m_hangmanImages;
-    QString m_hangmanImagePath = ":/images/hangman_";
-
-    void initializeGame(); // pour une nouvelle partie
-    void updateUI();
-    void processGuess(QChar guess);
-    void isGameWon();
-    void isGameLost();
-    void updateHangmanDisplay();
+    void setupHomePage();
+    void setupMenu();
 
 };
 #endif // MAINWINDOW_H

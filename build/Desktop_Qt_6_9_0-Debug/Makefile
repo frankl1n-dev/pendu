@@ -272,6 +272,7 @@ DIST          = /home/franklin/Qt/6.9.0/gcc_64/mkspecs/features/spec_pre.prf \
 		/home/franklin/Qt/6.9.0/gcc_64/mkspecs/features/qt_config.prf \
 		/home/franklin/Qt/6.9.0/gcc_64/mkspecs/linux-g++/qmake.conf \
 		/home/franklin/Qt/6.9.0/gcc_64/mkspecs/features/spec_post.prf \
+		../../.qmake.stash \
 		/home/franklin/Qt/6.9.0/gcc_64/mkspecs/features/exclusive_builds.prf \
 		/home/franklin/Qt/6.9.0/gcc_64/mkspecs/features/toolchain.prf \
 		/home/franklin/Qt/6.9.0/gcc_64/mkspecs/features/default_pre.prf \
@@ -303,7 +304,7 @@ TARGET        = pendnu
 first: all
 ####### Build rules
 
-pendnu: ui_mainwindow.h $(OBJECTS)  
+pendnu: ui_homepage.h ui_mainwindow.h $(OBJECTS)  
 	$(LINK) $(LFLAGS) -o $(TARGET)  $(OBJECTS) $(OBJCOMP) $(LIBS)
 
 Makefile: ../../pendnu.pro /home/franklin/Qt/6.9.0/gcc_64/mkspecs/linux-g++/qmake.conf /home/franklin/Qt/6.9.0/gcc_64/mkspecs/features/spec_pre.prf \
@@ -521,6 +522,7 @@ Makefile: ../../pendnu.pro /home/franklin/Qt/6.9.0/gcc_64/mkspecs/linux-g++/qmak
 		/home/franklin/Qt/6.9.0/gcc_64/mkspecs/features/qt_config.prf \
 		/home/franklin/Qt/6.9.0/gcc_64/mkspecs/linux-g++/qmake.conf \
 		/home/franklin/Qt/6.9.0/gcc_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		/home/franklin/Qt/6.9.0/gcc_64/mkspecs/features/exclusive_builds.prf \
 		/home/franklin/Qt/6.9.0/gcc_64/mkspecs/features/toolchain.prf \
 		/home/franklin/Qt/6.9.0/gcc_64/mkspecs/features/default_pre.prf \
@@ -762,6 +764,7 @@ Makefile: ../../pendnu.pro /home/franklin/Qt/6.9.0/gcc_64/mkspecs/linux-g++/qmak
 /home/franklin/Qt/6.9.0/gcc_64/mkspecs/features/qt_config.prf:
 /home/franklin/Qt/6.9.0/gcc_64/mkspecs/linux-g++/qmake.conf:
 /home/franklin/Qt/6.9.0/gcc_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 /home/franklin/Qt/6.9.0/gcc_64/mkspecs/features/exclusive_builds.prf:
 /home/franklin/Qt/6.9.0/gcc_64/mkspecs/features/toolchain.prf:
 /home/franklin/Qt/6.9.0/gcc_64/mkspecs/features/default_pre.prf:
@@ -804,7 +807,7 @@ distdir: FORCE
 	$(COPY_FILE) --parents /home/franklin/Qt/6.9.0/gcc_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../../mainwindow.h $(DISTDIR)/
 	$(COPY_FILE) --parents ../../main.cpp ../../mainwindow.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../../mainwindow.ui $(DISTDIR)/
+	$(COPY_FILE) --parents ../../homepage.ui ../../mainwindow.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -1038,13 +1041,16 @@ moc_mainwindow.cpp: ../../mainwindow.h \
 		/home/franklin/Qt/6.9.0/gcc_64/include/QtCore/qlocale.h \
 		/home/franklin/Qt/6.9.0/gcc_64/include/QtGui/qguiapplication_platform.h \
 		/home/franklin/Qt/6.9.0/gcc_64/include/QtWidgets/qtabwidget.h \
-		/home/franklin/Qt/6.9.0/gcc_64/include/QtCore/QStringList \
-		/home/franklin/Qt/6.9.0/gcc_64/include/QtCore/QSet \
-		/home/franklin/Qt/6.9.0/gcc_64/include/QtGui/QPixmap \
-		/home/franklin/Qt/6.9.0/gcc_64/include/QtWidgets/QMessageBox \
-		/home/franklin/Qt/6.9.0/gcc_64/include/QtWidgets/qmessagebox.h \
-		/home/franklin/Qt/6.9.0/gcc_64/include/QtWidgets/qdialog.h \
-		/home/franklin/Qt/6.9.0/gcc_64/include/QtWidgets/qdialogbuttonbox.h \
+		/home/franklin/Qt/6.9.0/gcc_64/include/QtWidgets/QVBoxLayout \
+		/home/franklin/Qt/6.9.0/gcc_64/include/QtWidgets/qboxlayout.h \
+		/home/franklin/Qt/6.9.0/gcc_64/include/QtWidgets/qlayout.h \
+		/home/franklin/Qt/6.9.0/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/home/franklin/Qt/6.9.0/gcc_64/include/QtWidgets/qgridlayout.h \
+		/home/franklin/Qt/6.9.0/gcc_64/include/QtWidgets/QLabel \
+		/home/franklin/Qt/6.9.0/gcc_64/include/QtWidgets/qlabel.h \
+		/home/franklin/Qt/6.9.0/gcc_64/include/QtWidgets/qframe.h \
+		/home/franklin/Qt/6.9.0/gcc_64/include/QtGui/qpicture.h \
+		/home/franklin/Qt/6.9.0/gcc_64/include/QtGui/qtextdocument.h \
 		moc_predefs.h \
 		/home/franklin/Qt/6.9.0/gcc_64/libexec/moc
 	/home/franklin/Qt/6.9.0/gcc_64/libexec/moc $(DEFINES) --include '/home/franklin/Desktop/CPP TP/pendnu/build/Desktop_Qt_6_9_0-Debug/moc_predefs.h' -I/home/franklin/Qt/6.9.0/gcc_64/mkspecs/linux-g++ -I'/home/franklin/Desktop/CPP TP/pendnu' -I/home/franklin/Qt/6.9.0/gcc_64/include -I/home/franklin/Qt/6.9.0/gcc_64/include/QtWidgets -I/home/franklin/Qt/6.9.0/gcc_64/include/QtGui -I/home/franklin/Qt/6.9.0/gcc_64/include/QtCore -I. -I/usr/include/c++/13 -I/usr/include/x86_64-linux-gnu/c++/13 -I/usr/include/c++/13/backward -I/usr/lib/gcc/x86_64-linux-gnu/13/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../../mainwindow.h -o moc_mainwindow.cpp
@@ -1053,9 +1059,13 @@ compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_mainwindow.h
+compiler_uic_make_all: ui_homepage.h ui_mainwindow.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_mainwindow.h
+	-$(DEL_FILE) ui_homepage.h ui_mainwindow.h
+ui_homepage.h: ../../homepage.ui \
+		/home/franklin/Qt/6.9.0/gcc_64/libexec/uic
+	/home/franklin/Qt/6.9.0/gcc_64/libexec/uic ../../homepage.ui -o ui_homepage.h
+
 ui_mainwindow.h: ../../mainwindow.ui \
 		/home/franklin/Qt/6.9.0/gcc_64/libexec/uic
 	/home/franklin/Qt/6.9.0/gcc_64/libexec/uic ../../mainwindow.ui -o ui_mainwindow.h
@@ -1269,13 +1279,16 @@ main.o: ../../main.cpp ../../mainwindow.h \
 		/home/franklin/Qt/6.9.0/gcc_64/include/QtCore/qlocale.h \
 		/home/franklin/Qt/6.9.0/gcc_64/include/QtGui/qguiapplication_platform.h \
 		/home/franklin/Qt/6.9.0/gcc_64/include/QtWidgets/qtabwidget.h \
-		/home/franklin/Qt/6.9.0/gcc_64/include/QtCore/QStringList \
-		/home/franklin/Qt/6.9.0/gcc_64/include/QtCore/QSet \
-		/home/franklin/Qt/6.9.0/gcc_64/include/QtGui/QPixmap \
-		/home/franklin/Qt/6.9.0/gcc_64/include/QtWidgets/QMessageBox \
-		/home/franklin/Qt/6.9.0/gcc_64/include/QtWidgets/qmessagebox.h \
-		/home/franklin/Qt/6.9.0/gcc_64/include/QtWidgets/qdialog.h \
-		/home/franklin/Qt/6.9.0/gcc_64/include/QtWidgets/qdialogbuttonbox.h \
+		/home/franklin/Qt/6.9.0/gcc_64/include/QtWidgets/QVBoxLayout \
+		/home/franklin/Qt/6.9.0/gcc_64/include/QtWidgets/qboxlayout.h \
+		/home/franklin/Qt/6.9.0/gcc_64/include/QtWidgets/qlayout.h \
+		/home/franklin/Qt/6.9.0/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/home/franklin/Qt/6.9.0/gcc_64/include/QtWidgets/qgridlayout.h \
+		/home/franklin/Qt/6.9.0/gcc_64/include/QtWidgets/QLabel \
+		/home/franklin/Qt/6.9.0/gcc_64/include/QtWidgets/qlabel.h \
+		/home/franklin/Qt/6.9.0/gcc_64/include/QtWidgets/qframe.h \
+		/home/franklin/Qt/6.9.0/gcc_64/include/QtGui/qpicture.h \
+		/home/franklin/Qt/6.9.0/gcc_64/include/QtGui/qtextdocument.h \
 		/home/franklin/Qt/6.9.0/gcc_64/include/QtWidgets/QApplication \
 		/home/franklin/Qt/6.9.0/gcc_64/include/QtWidgets/qapplication.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../../main.cpp
@@ -1479,14 +1492,23 @@ mainwindow.o: ../../mainwindow.cpp ../../mainwindow.h \
 		/home/franklin/Qt/6.9.0/gcc_64/include/QtCore/qlocale.h \
 		/home/franklin/Qt/6.9.0/gcc_64/include/QtGui/qguiapplication_platform.h \
 		/home/franklin/Qt/6.9.0/gcc_64/include/QtWidgets/qtabwidget.h \
-		/home/franklin/Qt/6.9.0/gcc_64/include/QtCore/QStringList \
-		/home/franklin/Qt/6.9.0/gcc_64/include/QtCore/QSet \
-		/home/franklin/Qt/6.9.0/gcc_64/include/QtGui/QPixmap \
+		/home/franklin/Qt/6.9.0/gcc_64/include/QtWidgets/QVBoxLayout \
+		/home/franklin/Qt/6.9.0/gcc_64/include/QtWidgets/qboxlayout.h \
+		/home/franklin/Qt/6.9.0/gcc_64/include/QtWidgets/qlayout.h \
+		/home/franklin/Qt/6.9.0/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/home/franklin/Qt/6.9.0/gcc_64/include/QtWidgets/qgridlayout.h \
+		/home/franklin/Qt/6.9.0/gcc_64/include/QtWidgets/QLabel \
+		/home/franklin/Qt/6.9.0/gcc_64/include/QtWidgets/qlabel.h \
+		/home/franklin/Qt/6.9.0/gcc_64/include/QtWidgets/qframe.h \
+		/home/franklin/Qt/6.9.0/gcc_64/include/QtGui/qpicture.h \
+		/home/franklin/Qt/6.9.0/gcc_64/include/QtGui/qtextdocument.h \
+		/home/franklin/Qt/6.9.0/gcc_64/include/QtWidgets/QMenuBar \
+		/home/franklin/Qt/6.9.0/gcc_64/include/QtWidgets/qmenubar.h \
+		/home/franklin/Qt/6.9.0/gcc_64/include/QtWidgets/qmenu.h \
 		/home/franklin/Qt/6.9.0/gcc_64/include/QtWidgets/QMessageBox \
 		/home/franklin/Qt/6.9.0/gcc_64/include/QtWidgets/qmessagebox.h \
 		/home/franklin/Qt/6.9.0/gcc_64/include/QtWidgets/qdialog.h \
-		/home/franklin/Qt/6.9.0/gcc_64/include/QtWidgets/qdialogbuttonbox.h \
-		ui_mainwindow.h
+		/home/franklin/Qt/6.9.0/gcc_64/include/QtWidgets/qdialogbuttonbox.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../../mainwindow.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
